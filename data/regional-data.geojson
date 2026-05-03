@@ -1,0 +1,62 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kawasan A",
+        "status": "high"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [100.0, 0.5],
+            [100.5, 0.5],
+            [100.5, 1.1],
+            [100.0, 1.1],
+            [100.0, 0.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kawasan B",
+        "status": "medium"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [101.0, 0.4],
+            [101.4, 0.4],
+            [101.4, 0.9],
+            [101.0, 0.9],
+            [101.0, 0.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kawasan C",
+        "status": "low"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [100.7, 1.2],
+            [101.2, 1.2],
+            [101.2, 1.7],
+            [100.7, 1.7],
+            [100.7, 1.2]
+          ]
+        ]
+      }
+    }
+  ]
+}

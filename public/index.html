@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flood Risk Intelligence</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- Sidebar / Table View -->
+      <aside class="data-sidebar">
+        <header class="sidebar-header">
+          <div class="branding">
+            <span class="logo-dot"></span>
+            <h1>Flood Risk</h1>
+          </div>
+          <p class="subtitle">Streamflow & Regional Analysis</p>
+        </header>
+
+        <div class="stats-overview">
+          <div class="stat-card">
+            <span class="stat-label">Total Points</span>
+            <span class="stat-value" id="total-points">-</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Status</span>
+            <span class="stat-value text-live">Live</span>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-header">
+            <div class="header-top">
+              <h2>Data Streamflow</h2>
+              <div class="filter-toggle">
+                <button id="btn-filter-all" class="active">Semua</button>
+                <button id="btn-filter-land">Daratan</button>
+                <button id="btn-filter-coast">Pesisir</button>
+                <button id="btn-filter-ocean">Laut</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table id="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Koordinat (Lat, Lng)</th>
+                  <th>Streamflow</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+                <!-- Rows will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination-controls">
+            <button id="btn-prev" disabled>Previous</button>
+            <span id="page-info">Page 1 / -</span>
+            <button id="btn-next" disabled>Next</button>
+          </div>
+        </div>
+
+        <div class="legend-panel">
+          <h3>Legend</h3>
+          <div class="legend-item">
+            <span class="swatch region-swatch"></span>
+            <span>Region Polygon</span>
+          </div>
+          <div class="legend-hydro">
+            <div class="hydro-labels">
+              <span>Low Flow</span>
+              <span>High Flow</span>
+            </div>
+            <div class="hydro-gradient"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Map View -->
+      <main class="map-view">
+        <div id="map"></div>
+
+        <div class="animation-panel glass-panel">
+          <div class="animation-header">
+            <span id="current-time-display">Loading Data...</span>
+          </div>
+          <div class="animation-controls-wrapper">
+            <button id="btn-play-pause" class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </button>
+            <input type="range" id="time-slider" min="0" max="100" value="0" disabled />
+          </div>
+        </div>
+
+        <div class="floating-overlay">
+          <div class="glass-panel">
+            <p>Interactive Satellite Map</p>
+            <small>Data loaded from localized GeoJSON.</small>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Custom JS -->
+    <script src="/js/app.js"></script>
+  </body>
+</html>
